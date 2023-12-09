@@ -15,12 +15,13 @@
 }
 
 body {
-	overflow: hidden;
+	overflow-x: hidden;
 	margin: 0;
 	place-items: center;
 	min-width: 320px;
 	min-height: 100vh;
 	color: white;
+	scroll-snap-type: y mandatory;
 }
 
 a {
@@ -34,9 +35,17 @@ a:hover {
 }
 
 h1 {
+	animation: slide-out 0.5s ease;
 	font-size: 3.2em;
 	line-height: 1.1;
 	font-weight: bold;
+}
+
+h2 {
+	animation: slide-out 0.5s ease;
+	font-size: 2.2em;
+	line-height: 1.1;
+	font-weight: 200;
 }
 
 button {
@@ -61,13 +70,75 @@ button:active {
 	color: rgb(183, 56, 119);
 }
 
-section > img {
+section > .img {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
-	object-fit: cover;
+	/* background: url('../public/background.jpg'); */
+	background: url('https://cs7.pikabu.ru/post_img/big/2017/11/30/6/1512034306160616164.jpg');
+	background-size: cover;
+	background-position: 0 50%;
 	box-shadow: 0 0 10px black;
 	height: 500px;
 	/* animation: slide-out 0.5s ease; */
 	overflow: hidden;
+}
+
+.bricks {
+	transform: translateY(-50%);
+	position: absolute;
+	width: 100%;
+	top: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+}
+
+.section-content > .title,
+.section-content > .subtitle {
+	display: none;
+}
+
+.brick {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 15%;
+	padding-block: 25px;
+	padding-inline: 5px;
+	background-color: #242424;
+	border-radius: 25px;
+	border: 1px solid white;
+	transition: color 0.4s ease-in-out, transform 0.2s ease-in-out,
+		border-color 0.4s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.bricks:hover .brick:not(:hover) {
+	color: #424242;
+	border-color: #525252;
+}
+
+.bricks:hover .brick:hover {
+	transform: scale(1.1);
+}
+.bricks:hover .brick:hover {
+	border-color: rgb(248, 77, 162);
+	color: rgb(248, 77, 162);
+	box-shadow: 0 0 15px rgb(248, 77, 162);
+}
+
+.brick-num {
+	font-weight: bold;
+	font-size: 2.2em;
+	text-align: center;
+}
+
+.brick-p {
+	text-align: center;
 }
 
 @keyframes slide-out-background {
@@ -85,6 +156,7 @@ section {
 	background-image: url('../public/back.svg');
 	background-size: contain;
 	background-position: 0 -50%;
+	scroll-snap-align: center;
 }
 
 menu {
@@ -102,6 +174,7 @@ section > .section-content-wrapper {
 section > .section-content-wrapper > .section-content {
 	width: 80%;
 	z-index: 0;
+	position: relative;
 }
 
 section > .section-content-wrapper {
@@ -154,7 +227,7 @@ section > .section-content-wrapper {
 
 .burger-wrapper {
 	border: none;
-
+	z-index: 101;
 	box-sizing: content-box;
 	padding: 10px;
 	width: 30px;
@@ -275,10 +348,65 @@ menu.opened {
 	left: 0;
 	opacity: 1;
 }
+.menu_overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 9;
+	pointer-events: none;
+	transition: background-color 0.5s ease;
+}
+
+.menu_overlay.opened {
+	pointer-events: all;
+	background-color: rgba(0, 0, 0, 0.5);
+}
 
 @media (max-width: 800px) {
 	.header > div > a > span {
 		display: none;
+	}
+
+	section > .img {
+		width: 100%;
+		height: 30%;
+	}
+
+	section > .img > * {
+		display: none;
+	}
+
+	.bricks {
+		transform: translate(0, 0);
+		margin-top: 25px;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+		position: static;
+		row-gap: 10px;
+		column-gap: 10px;
+		height: fit-content;
+	}
+	.section-content > .title {
+		display: block;
+		font-size: 1.6em;
+	}
+	.section-content > .subtitle {
+		display: block;
+		font-size: 1.2em;
+	}
+
+	.brick {
+		padding-block: 10px;
+		width: 45%;
+		font-size: 1.1em;
+	}
+
+	.brick-p {
+		font-size: 0.6em;
+	}
+	.brick-num {
+		font-weight: bold;
+		font-size: 1em;
 	}
 
 	.header {
