@@ -27,7 +27,7 @@ export default ({ nav }: headerProps) => {
 					</button>
 				</div>
 			</header>
-			<BurgerMenu open={isBurgerOpen} />
+			<BurgerMenu open={isBurgerOpen} setOpen={setBurgerOpen} />
 		</>
 	)
 }
