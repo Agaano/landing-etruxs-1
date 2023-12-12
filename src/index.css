@@ -48,6 +48,20 @@ h2 {
 	font-weight: 200;
 }
 
+p {
+	padding-block: 15px;
+	font-size: 1.2em;
+	line-height: 1.2;
+}
+
+body::-webkit-scrollbar {
+	background-color: #242424;
+	width: 1px;
+}
+body::-webkit-scrollbar-thumb {
+	background-color: rgb(248, 77, 162);
+}
+
 button {
 	border-radius: 8px;
 	border: 1px solid white;
@@ -70,20 +84,50 @@ button:active {
 	color: rgb(183, 56, 119);
 }
 
-section > .img {
+.img {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
 	/* background: url('../public/background.jpg'); */
-	background: url('https://cs7.pikabu.ru/post_img/big/2017/11/30/6/1512034306160616164.jpg');
 	background-size: cover;
 	background-position: 0 50%;
 	box-shadow: 0 0 10px black;
-	height: 500px;
+	height: 50%;
+	max-height: 500px;
 	/* animation: slide-out 0.5s ease; */
 	overflow: hidden;
+}
+
+.img.first {
+	background: url('https://cs7.pikabu.ru/post_img/big/2017/11/30/6/1512034306160616164.jpg');
+	background-size: cover;
+	background-position: 0 50%;
+}
+
+.img:not(.first) > * {
+	filter: drop-shadow(0 2px 0 black) drop-shadow(2px 0 0 black);
+}
+
+.img.img2 {
+	background: url('https://www.forbes.com/advisor/wp-content/uploads/2021/03/traveling-based-on-fare-deals.jpg');
+	height: 50%;
+	background-size: cover;
+	background-position: 0 50%;
+}
+
+.img.img3 {
+	background: url('https://images.saymedia-content.com/.image/c_fit%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_620/MTg3MzY3NTczNTUyMTEzMjEy/benefits-of-traveling-abroad.jpg');
+	background-size: cover;
+	height: 50%;
+	background-position: 0 50%;
+}
+
+.img.img4 {
+	background: url('https://tailoredspain.com/wp-content/uploads/2015/03/traveling.png');
+	background-size: cover;
+	background-position: 0 50%;
 }
 
 .bricks {
@@ -371,7 +415,19 @@ menu.opened {
 		height: 30%;
 	}
 
-	section > .img > * {
+	section > .img:not(.first) > * {
+		text-align: center;
+	}
+
+	section > .img:not(.first) > h1 {
+		font-size: 1.6em;
+	}
+
+	section > .img:not(.first) > h2 {
+		font-size: 1.2em;
+	}
+
+	section > .img.first > * {
 		display: none;
 	}
 

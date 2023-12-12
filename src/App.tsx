@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 
 function App() {
-
 	return (
 		<>
 			<Header
@@ -13,7 +11,7 @@ function App() {
 				]}
 			/>
 			<section>
-				<div className='img'>
+				<div className='img first'>
 					<h1 className=''>Путешествуйте с нами</h1>
 					<h2 className=''>Открывайте новые миры</h2>
 				</div>
@@ -42,6 +40,20 @@ function App() {
 					</div>
 				</div>
 			</section>
+			<section>
+				<div className='section-content-wrapper'>
+					<div className='section-content'></div>
+				</div>
+				<div className='img img2'>
+					<h1 className=''>Широкий выбор направлений</h1>
+					<h2 className=''>Открывайте новые миры</h2>
+				</div>
+				<div className='img img3'>
+					<h1 className=''>Выгодные цены</h1>
+					<h2 className=''>Позвольте себе отдохнуть</h2>
+				</div>
+			</section>
+			<section></section>
 		</>
 	)
 }
