@@ -41,9 +41,6 @@ function App() {
 				</div>
 			</section>
 			<section>
-				<div className='section-content-wrapper'>
-					<div className='section-content'></div>
-				</div>
 				<div className='img img2'>
 					<h1 className=''>Широкий выбор направлений</h1>
 					<h2 className=''>Открывайте новые миры</h2>
@@ -53,7 +50,66 @@ function App() {
 					<h2 className=''>Позвольте себе отдохнуть</h2>
 				</div>
 			</section>
-			<section></section>
+			<section>
+				<div className='section-content-wrapper'>
+					<div className='section-content'>
+						<div className='container'>
+							<h1>О нас</h1>
+							<p>
+								Мы - команда профессионалов, которые любят путешествовать и
+								хотят помочь другим людям открывать для себя новые горизонты. Мы
+								предлагаем широкий выбор туров по всему миру, а также услуги по
+								организации индивидуальных поездок.{' '}
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div className='section-content-wrapper'>
+					<div className='section-content'>
+						<div className='container'>
+							<h1>Наши контакты</h1>
+							<div className='contacts'>
+								<div>
+									<img src='/public/vk.svg' /> @idivankov
+								</div>
+								<div>
+									<img src='/public/telegram.svg' /> @tghogho
+								</div>
+								<div>
+									<img src='/public/instagram.svg' /> @tavia
+								</div>
+								<div>
+									<img src='/public/phone.svg' /> +7 (999) 92-22-132
+								</div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div className='section-content-wrapper'>
+					<div className='section-content'>
+						<div className='form-wrapper'>
+							<form>
+								<h1>Оставьте вашу заявку!</h1>
+								<label>
+									Ваш email:
+									<input placeholder='Оставьте вашу почту' />
+								</label>
+								<label>
+									Или любые другие ваши контакты:
+									<input placeholder='Оставьте вашу почту' />
+								</label>
+								<button>Отправить</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
 		</>
 	)
 }
